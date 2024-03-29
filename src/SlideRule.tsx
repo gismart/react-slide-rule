@@ -57,6 +57,7 @@ export default React.forwardRef(function SlideRule(
     onChange = (v: number) => v,
     gap = 10,
     step = 1,
+    stepsAmount = 10,
     max = 300,
     min = 0,
     value = 150,
@@ -81,6 +82,7 @@ export default React.forwardRef(function SlideRule(
         onChange={onChange}
         gap={gap}
         step={step}
+        stepsAmount={stepsAmount}
         max={max}
         min={min}
         value={Number(value)}

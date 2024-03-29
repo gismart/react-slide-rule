@@ -7,7 +7,7 @@ exports["default"] = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _Canvas = _interopRequireDefault(require("./Canvas"));
 var _styles = _interopRequireDefault(require("./data/styles"));
-var _excluded = ["onChange", "gap", "step", "max", "min", "value", "axis", "markStyle", "smallerMarkStyle", "numberStyle", "unit", "style", "showWarning"];
+var _excluded = ["onChange", "gap", "step", "stepsAmount", "max", "min", "value", "axis", "markStyle", "smallerMarkStyle", "numberStyle", "unit", "style", "showWarning"];
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
@@ -102,6 +102,8 @@ var _default = exports["default"] = /*#__PURE__*/_react["default"].forwardRef(fu
     gap = _props$gap === void 0 ? 10 : _props$gap,
     _props$step = props.step,
     step = _props$step === void 0 ? 1 : _props$step,
+    _props$stepsAmount = props.stepsAmount,
+    stepsAmount = _props$stepsAmount === void 0 ? 10 : _props$stepsAmount,
     _props$max = props.max,
     max = _props$max === void 0 ? 300 : _props$max,
     _props$min = props.min,
@@ -139,6 +141,7 @@ var _default = exports["default"] = /*#__PURE__*/_react["default"].forwardRef(fu
     onChange: onChange,
     gap: gap,
     step: step,
+    stepsAmount: stepsAmount,
     max: max,
     min: min,
     value: Number(value),

@@ -21,6 +21,7 @@ export interface NumberStyle {
     textAlign?: 'left' | 'right' | 'center' | 'start' | 'end';
     textBaseline?: 'top' | 'hanging' | 'middle' | 'alphabetic' | 'ideographic' | 'bottom';
     rotate?: number;
+    formatNumber?: (v: number) => string;
 }
 export interface SlideRuleProps {
     onChange?: (v: number) => void;
@@ -32,6 +33,7 @@ export interface SlideRuleProps {
     unit?: string;
     gap?: number;
     step?: number;
+    stepsAmount?: number;
     max?: number;
     min?: number;
     value?: number;

@@ -162,6 +162,7 @@ var Canvas = exports["default"] = /*#__PURE__*/function (_React$PureComponent) {
         min = _this$props3.min,
         max = _this$props3.max,
         step = _this$props3.step,
+        stepsAmount = _this$props3.stepsAmount,
         gap = _this$props3.gap;
       this.currentValue = _common["default"].adjustValue({
         max: max,
@@ -193,6 +194,7 @@ var Canvas = exports["default"] = /*#__PURE__*/function (_React$PureComponent) {
       _drawingUtil["default"].drawCanvas({
         canvas: canvas,
         step: step,
+        stepsAmount: stepsAmount,
         markStyle: markStyle,
         smallerMarkStyle: smallerMarkStyle,
         numberStyle: numberStyle,

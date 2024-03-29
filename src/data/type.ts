@@ -31,6 +31,7 @@ export interface NumberStyle {
     | 'ideographic'
     | 'bottom';
   rotate?: number;
+  formatNumber?: (v: number) => string;
 }
 
 export interface SlideRuleProps {
@@ -43,6 +44,7 @@ export interface SlideRuleProps {
   unit?: string;
   gap?: number;
   step?: number;
+  stepsAmount?: number;
   max?: number;
   min?: number;
   value?: number;

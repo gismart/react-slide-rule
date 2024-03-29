@@ -36,11 +36,16 @@ var drawNumber = function drawNumber(_ref) {
     top = _ref$numberStyle.top,
     left = _ref$numberStyle.left,
     rotate = _ref$numberStyle.rotate,
+    formatNumber = _ref$numberStyle.formatNumber,
     isXAxis = _ref.isXAxis;
   ctx.save();
   if (isXAxis) ctx.translate(coordinate, top);else ctx.translate(left, coordinate);
   ctx.rotate(Math.PI / 180 * rotate);
-  ctx.fillText(text, 0, 0);
+  var value = text;
+  if (formatNumber) {
+    value = formatNumber(text);
+  }
+  ctx.fillText(value, 0, 0);
   ctx.restore();
 };
 var _applyNumberNumberStyle = function _applyNumberNumberStyle(ctx, numberStyle) {
@@ -63,6 +68,7 @@ var _calcNum = function _calcNum(i, step) {
 var drawCanvas = function drawCanvas(_ref2) {
   var canvas = _ref2.canvas,
     step = _ref2.step,
+    stepsAmount = _ref2.stepsAmount,
     markStyle = _ref2.markStyle,
     smallerMarkStyle = _ref2.smallerMarkStyle,
     numberStyle = _ref2.numberStyle,
@@ -71,7 +77,6 @@ var drawCanvas = function drawCanvas(_ref2) {
     max = _ref2.max,
     from = _ref2.from,
     to = _ref2.to,
-    gap = _ref2.gap,
     calcMarkCoordinate = _ref2.calcMarkCoordinate,
     isXAxis = _ref2.isXAxis;
   var drawLine = isXAxis ? _drawVerticalLine : _drawLine;
@@ -84,7 +89,7 @@ var drawCanvas = function drawCanvas(_ref2) {
     if (i < lower || i > upper) continue;
     var coordinate = calcMarkCoordinate(i);
     ctx.beginPath();
-    if (i % gap === 0) {
+    if (i % stepsAmount === 0) {
       drawLine(ctx, coordinate, markStyle);
       var text = _calcNum(i, step) + unit;
       drawNumber({

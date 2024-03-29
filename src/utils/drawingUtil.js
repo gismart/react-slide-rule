@@ -24,7 +24,7 @@ const drawNumber = ({
   ctx,
   text,
   coordinate,
-  numberStyle: { top, left, rotate },
+  numberStyle: { top, left, rotate, formatNumber },
   isXAxis,
 }) => {
   ctx.save();
@@ -32,7 +32,14 @@ const drawNumber = ({
   else ctx.translate(left, coordinate);
 
   ctx.rotate((Math.PI / 180) * rotate);
-  ctx.fillText(text, 0, 0);
+
+  let value = text;
+
+  if (formatNumber) {
+    value = formatNumber(text);
+  }
+
+  ctx.fillText(value, 0, 0);
   ctx.restore();
 };
 
@@ -52,6 +59,7 @@ const _calcNum = (i, step) => _round(i * step, step);
 const drawCanvas = ({
   canvas,
   step,
+  stepsAmount,
   markStyle,
   smallerMarkStyle,
   numberStyle,
@@ -60,7 +68,6 @@ const drawCanvas = ({
   max,
   from,
   to,
-  gap,
   calcMarkCoordinate,
   isXAxis,
 }) => {
@@ -77,7 +84,7 @@ const drawCanvas = ({
     const coordinate = calcMarkCoordinate(i);
 
     ctx.beginPath();
-    if (i % gap === 0) {
+    if (i % stepsAmount === 0) {
       drawLine(ctx, coordinate, markStyle);
       const text = _calcNum(i, step) + unit;
       drawNumber({ ctx, text, coordinate, numberStyle, isXAxis });

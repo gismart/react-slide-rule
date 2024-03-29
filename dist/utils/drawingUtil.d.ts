@@ -2,9 +2,10 @@ declare namespace _default {
     export { drawCanvas };
 }
 export default _default;
-declare function drawCanvas({ canvas, step, markStyle, smallerMarkStyle, numberStyle, unit, min, max, from, to, gap, calcMarkCoordinate, isXAxis, }: {
+declare function drawCanvas({ canvas, step, stepsAmount, markStyle, smallerMarkStyle, numberStyle, unit, min, max, from, to, calcMarkCoordinate, isXAxis, }: {
     canvas: any;
     step: any;
+    stepsAmount: any;
     markStyle: any;
     smallerMarkStyle: any;
     numberStyle: any;
@@ -13,7 +14,6 @@ declare function drawCanvas({ canvas, step, markStyle, smallerMarkStyle, numberS
     max: any;
     from: any;
     to: any;
-    gap: any;
     calcMarkCoordinate: any;
     isXAxis: any;
 }): void;

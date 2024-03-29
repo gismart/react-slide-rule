@@ -123,7 +123,7 @@ export default class Canvas extends React.PureComponent {
   }
 
   drawCanvas() {
-    const { min, max, step, gap } = this.props;
+    const { min, max, step, stepsAmount, gap } = this.props;
     this.currentValue = util.adjustValue({
       max,
       min,
@@ -147,6 +147,7 @@ export default class Canvas extends React.PureComponent {
     drawingUtil.drawCanvas({
       canvas,
       step,
+      stepsAmount,
       markStyle,
       smallerMarkStyle,
       numberStyle,
