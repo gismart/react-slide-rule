@@ -4,7 +4,7 @@ export interface TouchPoint {
     time: number;
     shift: number;
 }
-export declare type Axis = 'x' | 'y' | 'x-reverse' | 'y-reverse';
+export type Axis = 'x' | 'y' | 'x-reverse' | 'y-reverse';
 export interface MarkStyle {
     color?: Property.BackgroundColor;
     width?: number;

@@ -4,9 +4,15 @@ export default class Canvas extends React.PureComponent<any, any, any> {
     coordinate: number;
     isTouching: boolean;
     touchPoints: any[];
+    state: {
+        translate: number;
+    };
     browserEnv: boolean;
     canvasRef: React.RefObject<any>;
     currentValue: any;
+    componentDidMount(): void;
+    componentDidUpdate(): void;
+    componentDidCatch(error: any, errorInfo: any): void;
     get isXAxis(): boolean;
     get isReverseAxis(): boolean;
     getCoordinate: (e: any) => any;
@@ -17,5 +23,6 @@ export default class Canvas extends React.PureComponent<any, any, any> {
     rebound(delta: any): boolean;
     moveGradations(delta: any): void;
     drawCanvas(): void;
+    render(): React.JSX.Element;
 }
 import React from "react";

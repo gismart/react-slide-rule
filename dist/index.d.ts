@@ -1,1 +1,1 @@
-export { default } from "./SlideRule";
+export { default } from './SlideRule';
