@@ -155,6 +155,7 @@ export default class Canvas extends React.PureComponent {
       max,
       from,
       to,
+      gap,
       calcMarkCoordinate,
       isXAxis: this.isXAxis,
     });

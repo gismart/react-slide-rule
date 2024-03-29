@@ -30,6 +30,7 @@ export interface NumberStyle {
     | 'alphabetic'
     | 'ideographic'
     | 'bottom';
+  rotate?: number;
 }
 
 export interface SlideRuleProps {

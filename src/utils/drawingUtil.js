@@ -60,6 +60,7 @@ const drawCanvas = ({
   max,
   from,
   to,
+  gap,
   calcMarkCoordinate,
   isXAxis,
 }) => {
@@ -76,7 +77,7 @@ const drawCanvas = ({
     const coordinate = calcMarkCoordinate(i);
 
     ctx.beginPath();
-    if (i % 10 === 0) {
+    if (i % gap === 0) {
       drawLine(ctx, coordinate, markStyle);
       const text = _calcNum(i, step) + unit;
       drawNumber({ ctx, text, coordinate, numberStyle, isXAxis });
