@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import SlideRule from 'react-slide-rule';
 
-export default function RotateNumber() {
+export default React.memo(function () {
   const [value, setValue] = useState(150);
 
   return (
@@ -9,8 +9,8 @@ export default function RotateNumber() {
       <SlideRule
         value={value}
         onChange={setValue}
-        // numberStyle={{ rotate: 200 }} //TODO: rotate type does not exist on numberStyle object type.
+        numberStyle={{ rotate: 20 }}
       />
     </div>
   );
-}
+});

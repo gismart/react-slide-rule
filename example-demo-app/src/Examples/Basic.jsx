@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import SlideRule from 'react-slide-rule';
 
-export default function Basic() {
+export default React.memo(function () {
   const [value, setValue] = useState(150);
 
   return (
@@ -10,4 +10,4 @@ export default function Basic() {
       <SlideRule value={value} onChange={setValue} />
     </div>
   );
-}
+});

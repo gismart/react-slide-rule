@@ -1,22 +1,6 @@
-export type DescriptionsKind =
-  | 'basic'
-  | 'input-element'
-  | 'vertical'
-  | 'custom-styled'
-  | 'rotate-number'
-  | 'custom-cursor'
-  | 'full-width'
-  | 'window-resize-observer'
-  | 'multiple-pointers';
-
-type DescriptionType = {
-  [key in DescriptionsKind]: {
-    subheader: string;
-    title?: string;
-  };
-};
-
-const descriptions: DescriptionType = {
+export default {
+  main:
+    ' allows users to select a value along a subjectvie range and step.\nThis application lists demos of the component.',
   basic: {
     subheader:
       "Let's get started with a simple example provided with a value and callback to update the value.",
@@ -50,16 +34,9 @@ const descriptions: DescriptionType = {
     subheader:
       'In this example, the component stretchs to the parent width.\nNotice that the component is not responsive and will never resize.',
   },
-  'window-resize-observer': {
+  'resize-observer': {
     title: 'Responsive Slide Rule',
     subheader:
       'In this example, the component adapts to every resize of the parent element, by using "ResizeObserver".\nNotice that IE and old-version browsers may not support ResizeObserver. In this case, consider using "onresize" instead.',
   },
-  'multiple-pointers': {
-    title: 'Multiple Pointers',
-    subheader:
-      'In this example, we added 3 pointers on the Slide Rule but you can add as many as you want.\nNote that the value of the pointers never cross min and max of the Slide Rule.',
-  },
 };
-
-export default descriptions;

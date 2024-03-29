@@ -1,7 +1,8 @@
-import ExampleItem from './components/ExampleItem';
-import './styles/examples.css';
+import React from 'react';
+import ExampleItem from 'ExampleItem';
+import descriptions from 'Data/descriptions';
 
-export default function App() {
+export default React.memo(function App() {
   return (
     <main>
       <h1>Demos</h1>
@@ -9,8 +10,7 @@ export default function App() {
         <a href="https://github.com/loput12ouj35/React-slide-rule">
           React-slide-rule
         </a>
-        &nbsp;allows users to select a value along a subjectvie range and step.
-        This application lists demos of the component.
+        {descriptions.main}
       </p>
       <h2 id="basic">Basic</h2>
       <ul>
@@ -23,12 +23,11 @@ export default function App() {
         <ExampleItem id="custom-styled" />
         <ExampleItem id="rotate-number" />
         <ExampleItem id="custom-cursor" />
-        <ExampleItem id="multiple-pointers" />
         <ExampleItem id="full-width" />
-        <ExampleItem id="window-resize-observer" />
+        <ExampleItem id="resize-observer" />
       </ul>
       <h2>Playground</h2>
       <p>(todo)</p>
     </main>
   );
-}
+});

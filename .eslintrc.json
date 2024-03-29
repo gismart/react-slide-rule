@@ -11,11 +11,19 @@
     "plugin:prettier/recommended",
     "plugin:import/typescript"
   ],
-  "plugins": ["react", "@typescript-eslint", "jsx-a11y", "import"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "jsx-a11y",
+    "import"
+  ],
   "rules": {
     "react/prop-types": 0,
     "react/jsx-one-expression-per-line": 0,
-    "import/imports-first": ["error", "absolute-first"],
+    "import/imports-first": [
+      "error",
+      "absolute-first"
+    ],
     "react/state-in-constructor": 0,
     "react/jsx-filename-extension": 0,
     "import/newline-after-import": 2,
@@ -23,20 +31,7 @@
     "import/prefer-default-export": 0,
     "linebreak-style": 0,
     "func-names": 0,
-    "no-console": 0,
-    "no-unused-vars": [
-      "error",
-      {
-        "argsIgnorePattern": "^_"
-      }
-    ],
-    "no-restricted-syntax": [
-      "error",
-      {
-        "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(error)|(warn)$/]",
-        "message": "Unexpected property on console object was called"
-      }
-    ],
+    "no-unused-vars": 1,
     "prefer-arrow-callback": 0,
     "no-underscore-dangle": 0,
     "no-plusplus": 0,
@@ -44,16 +39,19 @@
     "no-use-before-define": 0,
     "no-nested-ternary": 0,
     "@typescript-eslint/no-use-before-define": 0,
-    "prettier/prettier": 2,
-    "react/require-default-props": 0,
-    "react/react-in-jsx-scope": 0
+    "prettier/prettier": 2
   },
   "parser": "@typescript-eslint/parser",
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx"],
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
       "parserOptions": {
-        "project": ["./tsconfig.json"]
+        "project": [
+          "./tsconfig.json"
+        ]
       }
     }
   ]

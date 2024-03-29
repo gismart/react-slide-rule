@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import React from 'react';
 import Canvas from './Canvas';
 import styles from './data/styles';
 import { Axis, MarkStyle, NumberStyle, SlideRuleProps } from './data/type';
@@ -18,7 +18,6 @@ const DEFAULT_X_AXIS_PROPS: SlideRuleProps = {
     textBaseline: 'top',
     rotate: 0,
   },
-  pointers: [],
 };
 
 const DEFAULT_Y_AXIS_PROPS: SlideRuleProps = {
@@ -36,11 +35,9 @@ const DEFAULT_Y_AXIS_PROPS: SlideRuleProps = {
     textBaseline: 'middle',
     rotate: 0,
   },
-  pointers: [],
 };
 
 const _isXAxis = (axis: Axis): boolean => axis === 'x' || axis === 'x-reverse';
-
 const _getOrMerge = (
   source: MarkStyle | NumberStyle = {},
   target?: MarkStyle | NumberStyle
@@ -52,9 +49,9 @@ const _getOrMerge = (
   }
 };
 
-const SlideRule = forwardRef<HTMLDivElement, SlideRuleProps>(function SlideRule(
-  props,
-  ref
+export default React.forwardRef(function SlideRule(
+  props: SlideRuleProps,
+  ref: React.Ref<any>
 ) {
   const {
     onChange = (v: number) => v,
@@ -70,19 +67,13 @@ const SlideRule = forwardRef<HTMLDivElement, SlideRuleProps>(function SlideRule(
     unit = '',
     style,
     showWarning = false,
-    pointers = [],
     ...rest
   } = props;
 
   if (showWarning) validate({ value, min, max, step });
 
-  const defaults = _isXAxis(axis) ? DEFAULT_X_AXIS_PROPS : DEFAULT_Y_AXIS_PROPS;
-
-  const {
-    width = defaults.width!,
-    height = defaults.height!,
-    cursor = defaults.cursor,
-  } = rest;
+  const def = _isXAxis(axis) ? DEFAULT_X_AXIS_PROPS : DEFAULT_Y_AXIS_PROPS;
+  const { width = def.width, height = def.height, cursor = def.cursor } = rest;
 
   return (
     <div ref={ref} style={styles.createRootStyle(style)}>
@@ -94,25 +85,17 @@ const SlideRule = forwardRef<HTMLDivElement, SlideRuleProps>(function SlideRule(
         min={min}
         value={Number(value)}
         axis={axis}
-        markStyle={_getOrMerge(defaults.markStyle, markStyle)}
-        smallerMarkStyle={_getOrMerge(
-          defaults.smallerMarkStyle,
-          smallerMarkStyle
-        )}
-        numberStyle={
-          _getOrMerge(defaults.numberStyle, numberStyle) as NumberStyle
-        }
+        markStyle={_getOrMerge(def.markStyle, markStyle)}
+        smallerMarkStyle={_getOrMerge(def.smallerMarkStyle, smallerMarkStyle)}
+        numberStyle={_getOrMerge(def.numberStyle, numberStyle)}
         width={width}
         height={height}
         unit={unit}
-        pointers={pointers}
       />
       <div style={styles.createCenterStyle(_isXAxis(axis))}>{cursor}</div>
     </div>
   );
 });
-
-export default SlideRule;
 
 function validate(options: {
   value: number;
