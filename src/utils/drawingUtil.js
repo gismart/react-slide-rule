@@ -72,8 +72,8 @@ const drawCanvas = ({
   isXAxis,
 }) => {
   const drawLine = isXAxis ? _drawVerticalLine : _drawLine;
-  const lower = Math.round(min / step); // use round() in case of decimal place
-  const upper = Math.round(max / step);
+  const lower = Math.round(0 / step); // use round() in case of decimal place
+  const upper = Math.round((max * 2) / step);
   const ctx = canvas.getContext('2d');
 
   _applyNumberNumberStyle(ctx, numberStyle);

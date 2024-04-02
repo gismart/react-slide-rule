@@ -80,8 +80,8 @@ var drawCanvas = function drawCanvas(_ref2) {
     calcMarkCoordinate = _ref2.calcMarkCoordinate,
     isXAxis = _ref2.isXAxis;
   var drawLine = isXAxis ? _drawVerticalLine : _drawLine;
-  var lower = Math.round(min / step); // use round() in case of decimal place
-  var upper = Math.round(max / step);
+  var lower = Math.round(0 / step); // use round() in case of decimal place
+  var upper = Math.round(max * 2 / step);
   var ctx = canvas.getContext('2d');
   _applyNumberNumberStyle(ctx, numberStyle);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
